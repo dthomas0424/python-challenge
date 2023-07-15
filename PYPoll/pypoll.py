@@ -26,15 +26,15 @@ with open(budget_data) as csv_file:
         #add up votes for CCS
         if row[2] == "Charles Casper Stockham":
             CCS_Votes += 1
-            CCS_name = "Charles Casper Stockham"
+            CCS_name = row[2]
         #add up votes for DD    
         elif row[2] == "Diana DeGette":
             DD_Votes += 1
-            DD_name = "Diana DeGette"
+            DD_name = row[2]
         #add up votes for RAD    
         elif row[2] == "Raymon Anthony Doane":
             RAD_Votes += 1
-            RAD_name = "Raymon Anthony Doane"
+            RAD_name = row[2]
 #calculate percentage of votes for each candidate            
 CCS_percent = round(((CCS_Votes/total_votes) *100), 3)
 DD_percent = round(((DD_Votes/total_votes) *100), 3)
