@@ -1,8 +1,5 @@
 import os
 import csv
-#set lists
-candidate_votes = []
-candidate_name = []
 #set variables
 total_votes = 0
 CCS_Votes = 0
@@ -11,10 +8,7 @@ RAD_Votes = 0
 CCS_percent = 0
 DD_percent = 0
 RAD_percent = 0
-winner_votes= 0
-winner_name_index = 0
 winner_name = ""
-
 #define CSV file location
 budget_data = os.path.join("..", "Resources", "election_data.csv")
 #open and read CSV file
@@ -46,22 +40,7 @@ elif (DD_Votes) > (CCS_Votes) and (DD_Votes) > (RAD_Votes):
     winner_name = "Diana DeGette"
 elif (RAD_Votes) > (DD_Votes) and (RAD_Votes) > (CCS_Votes):
     winner_name = "Raymon Anthony Doane"
-#add the vote numbers to a list in order to get the winner
-candidate_votes = [CCS_Votes, DD_Votes, RAD_Votes]
-#set the maximum number of votes as the winner
-winner_votes = max(candidate_votes)
-#add candidate names to a list
-candidate_name = ["Charles Casper Stockham", "Diana DeGette", "Raymon Anthony Doane"]
-#get the winner name from the list by comparing it to the max votes
-winner_name_index = candidate_votes.index(winner_votes)
-#winner_name = candidate_name.index(winner_name_index)
-#print(winner_name)
-#print(winner_votes)
-#print(f'{CCS_percent}%')
-#print(f'{DD_percent}%')
-#print(f'{RAD_percent}%')
-
-     
+#print the results         
 print("Election Results")
 print()
 print("---------------------------")
@@ -79,7 +58,7 @@ print()
 print(f"Winner: {winner_name}")
 print()
 print("---------------------------")
-
+#write the results to a file
 election_data_file = os.path.join("election_data.txt")
 with open(election_data_file, "w") as election_data_output:
     election_data_output.write("Election Results\n")
