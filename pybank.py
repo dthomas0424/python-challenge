@@ -11,6 +11,14 @@ previousmonth_PL = 0
 change_PL = 0
 PL_sum = 0
 average_PL = 0
+highestchange_PL = 0
+lowestchange_PL = 0
+highestchangeindex = 0
+lowestchangeindex = 0
+highestmonthindex = 0
+lowestmonthindex = 0
+highest_month = ""
+lowest_month = ""
 #define CSV file location
 budget_data = os.path.join("..", "Resources", "budget_data.csv")
 #open and read CSV file
@@ -35,12 +43,28 @@ with open(budget_data) as csv_file:
             month_list.append(row[0])
             change_list.append(change_PL)
             previousmonth_PL = month_PL
+    #sum the total of changes in the list for averaging        
     PL_sum = sum(change_list)
+    #calculate average change 
     average_PL = round(PL_sum/(month_count -1), 2)
+    #set the maximun and minumum values from the change list
+    highestchange_PL = max(change_list)
+    lowestchange_PL = min(change_list)
+    #locate the Index values for the highest and lowest values
+    highestchangeindex = change_list.index(highestchange_PL)
+    lowestchangeindex = change_list.index(lowestchange_PL)
+    #locate the index of the highest and lowest month
+      #highestmonthindex = month_list.index(highestchange_PL)
+      #lowestmonthindex = month_list.index(lowestchange_PL)
+    highest_month = month_list[highestchangeindex]
+    lowest_month = month_list[lowestchangeindex]
+
 
 #print(average_PL)
-
-
+#print(highest_month)
+#print(lowest_month)
+#print(highestchange_PL)
+#print(lowestchange_PL)
 
 print("Financial Analysis")
 print()
@@ -49,4 +73,6 @@ print()
 print(f'Total Months: {month_count}')
 print(f'Total: {total_PL}')
 print(f'Average Change: {average_PL}')
+print(f'Greatest Increase in Profits: {highest_month} {highestchange_PL}')
+print(f'Greatest Decrease in Profits: {lowest_month} {lowestchange_PL}')
 
