@@ -8,6 +8,9 @@ RAD_Votes = 0
 CCS_percent = 0
 DD_percent = 0
 RAD_percent = 0
+CCS_name = ""
+DD_name = ""
+RAD_name = ""
 winner_name = ""
 #define CSV file location
 budget_data = os.path.join("..", "Resources", "election_data.csv")
@@ -23,23 +26,26 @@ with open(budget_data) as csv_file:
         #add up votes for CCS
         if row[2] == "Charles Casper Stockham":
             CCS_Votes += 1
+            CCS_name = "Charles Casper Stockham"
         #add up votes for DD    
         elif row[2] == "Diana DeGette":
             DD_Votes += 1
+            DD_name = "Diana DeGette"
         #add up votes for RAD    
         elif row[2] == "Raymon Anthony Doane":
             RAD_Votes += 1
+            RAD_name = "Raymon Anthony Doane"
 #calculate percentage of votes for each candidate            
 CCS_percent = round(((CCS_Votes/total_votes) *100), 3)
 DD_percent = round(((DD_Votes/total_votes) *100), 3)
 RAD_percent = round(((RAD_Votes/total_votes) *100), 3)
 #set winner_name to the candidate with the most votes
 if (CCS_Votes) > (DD_Votes) and (CCS_Votes) > (RAD_Votes):
-    winner_name = "Charles Casper Stockham"
+    winner_name = (CCS_name)
 elif (DD_Votes) > (CCS_Votes) and (DD_Votes) > (RAD_Votes):
-    winner_name = "Diana DeGette"
+    winner_name = (DD_name)
 elif (RAD_Votes) > (DD_Votes) and (RAD_Votes) > (CCS_Votes):
-    winner_name = "Raymon Anthony Doane"
+    winner_name = (RAD_name)
 #print the results         
 print("Election Results")
 print()
