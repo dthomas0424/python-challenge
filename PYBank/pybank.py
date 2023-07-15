@@ -58,14 +58,6 @@ with open(budget_data) as csv_file:
       #lowestmonthindex = month_list.index(lowestchange_PL)
     highest_month = month_list[highestchangeindex]
     lowest_month = month_list[lowestchangeindex]
-
-
-#print(average_PL)
-#print(highest_month)
-#print(lowest_month)
-#print(highestchange_PL)
-#print(lowestchange_PL)
-
 print("Financial Analysis")
 print()
 print('--------------------------------------')
