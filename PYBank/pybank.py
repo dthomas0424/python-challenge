@@ -15,8 +15,6 @@ highestchange_PL = 0
 lowestchange_PL = 0
 highestchangeindex = 0
 lowestchangeindex = 0
-highestmonthindex = 0
-lowestmonthindex = 0
 highest_month = ""
 lowest_month = ""
 #define CSV file location
@@ -53,9 +51,7 @@ with open(budget_data) as csv_file:
     #locate the Index values for the highest and lowest values
     highestchangeindex = change_list.index(highestchange_PL)
     lowestchangeindex = change_list.index(lowestchange_PL)
-    #locate the index of the highest and lowest month
-      #highestmonthindex = month_list.index(highestchange_PL)
-      #lowestmonthindex = month_list.index(lowestchange_PL)
+    #extract the highest and lowest month values
     highest_month = month_list[highestchangeindex]
     lowest_month = month_list[lowestchangeindex]
 print("Financial Analysis")
