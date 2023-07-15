@@ -76,3 +76,20 @@ print(f'Average Change: {average_PL}')
 print(f'Greatest Increase in Profits: {highest_month} {highestchange_PL}')
 print(f'Greatest Decrease in Profits: {lowest_month} {lowestchange_PL}')
 
+#create and export a file with the printed results
+budget_data_file = os.path.join("budget_data.txt")
+with open(budget_data_file, "w") as budget_data_output:
+    budget_data_output.write("Financial Analysis\n")
+    budget_data_output.write('\n')
+    budget_data_output.write('--------------------------------------\n')
+    budget_data_output.write('\n')
+    budget_data_output.write(f'Total Months: {month_count}\n')
+    budget_data_output.write(f'Total: {total_PL}\n')
+    budget_data_output.write(f'Average Change: {average_PL}\n')
+    budget_data_output.write(f'Greatest Increase in Profits: {highest_month} {highestchange_PL}\n')
+    budget_data_output.write(f'Greatest Decrease in Profits: {lowest_month} {lowestchange_PL}\n')
+
+    
+
+
+
